@@ -115,4 +115,33 @@
     );
     ```
 
-### 
+### Stronly Typing Actions
+- Define the appropriate actions
+- Export a constant that calls createAction
+- Specify a clear, unique action type string:
+    ```
+    export const toggleProductCode = createAction(
+        '[Product] Toggle Product Code'
+    );
+    ```
+- Use props to define associated data as needed:
+    ```
+    export const setCurrentProduct = createAction(
+        '[Product] Set Current Product',
+        props<{ product: Product }>()
+    );
+    ```
+### Complex Operations
+- Define Multiple actions:
+    ```
+        export const loadProducts = createAction('[Product] Load');
+        export const loadProductsSuccess = createAction(
+            '[Product] Load Success',
+            props<{ products: Product[] }>()
+        );
+
+        export const loadProductsFailure = createAction(
+            '[Product] Load Fail',
+            props<{ error: string }>()
+        );
+    ```
